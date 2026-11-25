@@ -1,27 +1,17 @@
-<?php 
+<?php
 define("RUTABASE", dirname(__FILE__));
-//define("MODO_TRABAJO","produccion"); //en "produccion o en desarrollo
-define("MODO_TRABAJO","desarrollo"); //en "produccion o en desarrollo
+define("MODO_TRABAJO", "desarrollo");
 
-if (MODO_TRABAJO=="produccion")
-    error_reporting(0);
-    else 
-        error_reporting(E_ALL);  
+// Configuración del manejo de errores
+if (MODO_TRABAJO == "produccion") {error_reporting(0);} 
+else {error_reporting(E_ALL);}
 
-spl_autoload_register(function ($clase){
-    $ruta=RUTABASE."/scripts/clases/";
-    $fichero=$ruta."$clase.php";
-    
-    if (file_exists($fichero))
-        {
-            require_once($fichero);
-        }
-      else
-        {
-            throw new Exception("La clase $clase no se ha encontrado.");
-        }
-});
+// Configuración de los colores del texto
+define("COLORESTEXTO", array("Negro"=>"black", "Azul"=>"blue", "Blanco"=>"white", "Rojo"=>"red"));
 
-include(RUTABASE."/aplicacion/plantilla/plantilla.php");
+// Configuración de los colores de fondo
+define("COLORESFONDO", array("Blanco"=>"white", "Rojo"=>"red", "Verde"=>"green", "Azul"=>"blue", "Amarillo"=>"yellow"));
 
-//creo todos los objetos que necesita mi aplicación
+// Cargar las funciones de la plantilla
+require_once(RUTABASE . "/aplicacion/plantilla/plantilla.php");
+?>
