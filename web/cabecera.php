@@ -12,6 +12,9 @@ define("TEXTCOLOR", array("Negro"=>"black", "Azul"=>"blue", "Blanco"=>"white", "
 // Configuración de los colores de fondo
 define("BACKGROUNDCOLOR", array("Blanco"=>"white", "Rojo"=>"red", "Verde"=>"green", "Azul"=>"blue", "Amarillo"=>"yellow"));
 
+// Inicio de sesión
+if (session_status() == PHP_SESSION_NONE) {session_start();}
+
 // Cargar las funciones de la plantilla
 require_once(RUTABASE . "/aplicacion/plantilla/plantilla.php");
 ?>
